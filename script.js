@@ -43,7 +43,38 @@ if (country === fourthCountry)
     } else if (amount < 200) {
         alert('У Вас недостаточно средств для путешествия в какую либо страну')
     }
- 
+
 alert('Task 2')
 
+const productUnits = prompt('Введите количество единиц товара')
+let price = prompt('Введите бюджет')
 
+if (!isNaN(productUnits) && !isNaN(price)) {
+    switch (prompt("Введите промо-код")) {
+        case "NEWYEAR":
+            price = (price - ((price * 20) / 100)) * productUnits;
+            break;
+        case "BLACKFRIDAY":
+            price = (price - ((price * 30) / 100)) * productUnits;
+            break;
+        case "SUMMERSALE":
+            price = (price - ((price * 15) / 100)) * productUnits;
+            break;
+        default:
+            price = (price - ((price * 5) / 100)) * productUnits;
+            break;
+    }
+} else {
+    alert('Введите числовое значение > 0');
+}
+
+if(productUnits >= 3 && price > 1000) {
+    price = (price - ((price * 15) / 100));
+} else if (productUnits >= 3) {
+    price = (price - ((price * 5) / 100));
+} else if (price > 1000) {
+    price = (price - ((price * 10) / 100));
+}
+ 
+alert(`Итоговая стоимость товара: ${price}`)
+ 
